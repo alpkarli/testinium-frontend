@@ -1,0 +1,28 @@
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  height: 100%;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.toolbar-right {
+  justify-content: flex-end;
+}
+
+.content {
+  flex: 1 0 auto;
+  margin: 1.5em;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}

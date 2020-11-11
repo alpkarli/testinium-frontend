@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+$font-stack:    Helvetica, sans-serif;
+$primary-color: rgb(70, 70, 70);
+$background-color: rgb(221, 221, 221);
+
+html, body {
+    background-color: $background-color;
+    color: $primary-color;
+    font: $font-stack;
+    height: 100%;
+    margin: 0;
+}
+
+@mixin button($padding:6px 12px, $font-size:16px, $margin: .3em, $border-radius:3px, $bg-color:rgb(85, 85, 85), $font-color:rgb(228, 228, 228)) {
+    padding:$padding;
+    margin:$margin;
+    display:inline-block;
+    border:none;
+	border-radius:$border-radius;
+	background:$bg-color;
+    font-size:$font-size;
+	color:$font-color;
+}
+
+.btn {
+	@include button;
+}
+
+.btn-large {
+	@include button(20px 30px, 22px);
+}
+
+.btn-org {
+	@include button($font-color: rgb(235, 235, 235), $bg-color: rgb(228, 120, 20), $border-radius: 2px);
+}

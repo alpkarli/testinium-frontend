@@ -1,0 +1,30 @@
+<div><b>CANDIDATES</b></div>
+<div style="margin-bottom: 10px; margin-top: 10px">
+  <span>Search Box: </span><input #searchBox id="search-box" (input)="search(searchBox.value)" />
+</div>
+<table *ngIf="(candidates$| async); else loading">
+  <thead>
+    <tr>
+      <th style="min-width: 80px">Name</th>
+      <th style="min-width: 150px" colspan="2">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="(candidates$| async)?.length > 0; else noItems">
+      <tr *ngFor="let candidate of candidates$ | async">
+        <td>{{ candidate.name }}</td>
+        <td>{{ candidate.phone }}</td>
+        <button class="btn-org" [routerLink]="'/candidates/' + candidate.id">
+          Details
+        </button>
+      </tr>
+    </ng-container>
+    <ng-template #noItems>
+      <tr>
+        <td colspan="3">No Candidates!</td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>
+
+<ng-template #loading> Loading stuff... </ng-template>
